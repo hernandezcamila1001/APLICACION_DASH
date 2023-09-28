@@ -6,7 +6,7 @@ import time
 area3 = dbc.Container([
     dcc.Store(id="store"),
     dbc.Row([
-        #dbc.Col('EMPRESA', md=4, style={'background-color':'#86BCFF','text-align': 'center'}),
+        #
         dbc.Tabs(
             [
                 dbc.Tab(label="NOTICIAS", tab_id="noticias"),
