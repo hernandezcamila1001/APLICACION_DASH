@@ -5,8 +5,6 @@ import time
 
 area3 = dbc.Container([
     dcc.Store(id="store"),
-    # html.H3('Registro de afectaciones'), # Formato de Texto
-    # html.Hr(),              # Agrega una linea abajo del titulo
     dbc.Row([
         #dbc.Col('EMPRESA', md=4, style={'background-color':'#86BCFF','text-align': 'center'}),
         dbc.Tabs(
