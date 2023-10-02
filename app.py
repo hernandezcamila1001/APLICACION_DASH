@@ -5,7 +5,7 @@ from dash.dependencies import Input, Output
 import dash_bootstrap_components as dbc
 import folium
 
-from backend.mapaDepartamentos import *
+from backend.calculoInundacion import consultarDepartamento
 from frontend.area1 import *
 from frontend.area2 import *
 from frontend.area3 import *
@@ -92,15 +92,24 @@ def render_tab_content(active_tab, data):
 
 # Define el layout de la aplicación
 
-app.layout = dbc.Container([
+app.layout = dbc.Container(
+    [
     dbc.Row([
         dbc.Col(area1, md = 12, style = {'background-color':'white'}), # md es el ancho de la casilla 
         dbc.Col(area2, md = 6, style = {'background-color':'white'}),
         dbc.Col(area3, md = 6, style = {'background-color':'white'})
     ])  
-])
+    ],
+    fluid=True
+)
 
+@app.callback(
+    Output("mapa", "figure"),
+    Input("departamento_consultado", "value")
+)
 
+def update_map(departamento_consultado):
+    return consultarDepartamento(departamento_consultado)
 
 if __name__ == '__main__':
     app.run_server(debug=True)
