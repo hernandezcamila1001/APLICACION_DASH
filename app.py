@@ -15,6 +15,8 @@ from frontend.area3 import *
 # Crea la aplicación Dash
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
 
+server = app.server
+
 @app.callback(
     Output("mapa", "figure"),
     Input("departamento_consultado", "value")
